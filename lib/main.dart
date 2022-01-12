@@ -18,7 +18,7 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // scaffold used for predefined templets
+      // scaffold used for predefined templet
       // used for Appbar
       appBar: AppBar(
         // This is the Title of the Application which will show the top of the AppBar
