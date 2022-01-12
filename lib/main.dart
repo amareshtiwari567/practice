@@ -35,11 +35,11 @@ class Homepage extends StatelessWidget {
           alignment: Alignment.center,
           width: 100,
           height: 100,
-          // thi
+          //
           decoration: BoxDecoration(
             color: Colors.blueAccent,
           ),
-          // this is used for  Textarea
+          // this is used for  TextArea
           child: const Text("Amaresh Tiwari"),
         ),
       ),
