@@ -40,7 +40,7 @@ class Homepage extends StatelessWidget {
             color: Colors.blueAccent,
           ),
           // this is used for  TextArea
-          child: Text("    Amaresh Tiwari   "),
+          child: Text("Amaresh Tiwari"),
         ),
       ),
     );
