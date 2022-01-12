@@ -37,9 +37,9 @@ class Homepage extends StatelessWidget {
           height: 100,
           // thi
           decoration: BoxDecoration(
-              // color: Colors.blueAccent,
-              ),
-          child: const Text("Amaresh Tiwari"),
+            color: Colors.blueAccent,
+          ),
+          child: Text("Amaresh Tiwari"),
         ),
       ),
     );
