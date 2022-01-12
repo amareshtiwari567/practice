@@ -39,7 +39,7 @@ class Homepage extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.blueAccent,
           ),
-          // this is used for  Textare
+          // this is used for  Textarea
           child: const Text("Amaresh Tiwari"),
         ),
       ),
