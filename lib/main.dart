@@ -35,12 +35,36 @@ class Homepage extends StatelessWidget {
           alignment: Alignment.center,
           width: 100,
           height: 100,
-          //
+          // Decortion used for decorate the box, we can give the color border radius we can give the shadow
           decoration: BoxDecoration(
-            color: Colors.blueAccent,
-          ),
+              color: Colors.blueAccent,
+              borderRadius: BorderRadius.circular(18),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.greenAccent,
+                  // used for blur
+                  blurRadius: 5,
+                  spreadRadius: 5,
+                  offset: Offset(2.0, 4.0),
+                )
+              ],
+              // this uses for gradient(like - Linear gradient)
+              gradient: LinearGradient(
+                  colors: [Colors.yellowAccent, Colors.pinkAccent])),
           // this is used for  TextArea
-          child: Text("Amaresh Tiwari"),
+          child: Text(
+            "Amaresh Tiwari",
+            // it will do Text center
+            textAlign: TextAlign.center,
+            // this gives Text style
+            style: TextStyle(
+              color: Colors.black,
+              // this tells about the font
+              fontWeight: FontWeight.bold,
+              // this tells about size of the text
+              fontSize: 20,
+            ),
+          ),
         ),
       ),
     );
