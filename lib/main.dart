@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:js';
 
 import 'package:flutter/cupertino.dart';
@@ -8,6 +9,7 @@ void main() {
   runApp(MaterialApp(
     title: "Demo",
     home: Homepage(),
+    theme: ThemeData(primarySwatch: Colors.deepOrange),
   ));
 }
 
@@ -19,50 +21,71 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: dead_code
     return Scaffold(
-        // scaffold used for predefined templets
-        // used for Appbar
-        appBar: AppBar(
-          // This is the Title of the Application which will show the top of the AppBar
-          title: const Text("Demo Application"),
-          // Title will be situated in the center
-          centerTitle: true,
+      // scaffold used for predefined templets
+      // used for Appbar
+      appBar: AppBar(
+        // This is the Title of the Application which will show the top of the AppBar
+        title: const Text("Demo Application"),
+        // Title will be situated in the center
+        centerTitle: true,
+      ),
+      // This is the body of the Application
+      body: Container(),
+      drawer: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Drawer(
+          child: ListView(
+            children: <Widget>[
+              // DrawerHeader(
+              //   child: Text(
+              //     "Hi, I am drawer",
+              //     style: TextStyle(color: Colors.white),
+              //   ),
+              //   decoration: BoxDecoration(color: Colors.deepPurple),
+              // ),
+              UserAccountsDrawerHeader(
+                accountName: Text("Amaresh Tiwari"),
+                accountEmail: Text("Email@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://image.shutterstock.com/image-photo/portrait-smiling-young-businesswoman-glasses-260nw-292254521.jpg"),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text(
+                  "Account",
+                  style: TextStyle(color: Colors.black),
+                ),
+                subtitle: Text("Email"),
+                trailing: Icon(Icons.edit),
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text(
+                  "Name",
+                  style: TextStyle(color: Colors.black),
+                ),
+                subtitle: Text("Age"),
+                trailing: Icon(Icons.edit),
+              ),
+              ListTile(
+                leading: Icon(Icons.person),
+                title: Text(
+                  "Logout",
+                  style: TextStyle(color: Colors.black),
+                ),
+                trailing: Icon(Icons.edit),
+              ),
+            ],
+          ),
         ),
-        // This is the body of the Application
-        body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-                child: Container(
-              color: Colors.black,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 100,
-                        height: 109,
-                        color: Colors.pink,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 100,
-                        height: 109,
-                        color: Colors.yellow,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        width: 100,
-                        height: 109,
-                        color: Colors.lightGreen,
-                      ),
-                    ],
-                  )),
-
-              //   Body holds the Child in the application bar
-            ))));
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+    );
   }
 }
