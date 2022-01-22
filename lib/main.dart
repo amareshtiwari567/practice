@@ -10,7 +10,9 @@ import 'Mydrawer.dart';
 void main() {
   runApp(MaterialApp(
     title: "Demo",
+    // This is calling Home page
     home: Homepage(),
+    // This tells about the Theme of Home Page
     theme: ThemeData(primarySwatch: Colors.deepOrange),
   ));
 }

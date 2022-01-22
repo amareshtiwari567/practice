@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:practice/Mydrawer.dart';
 import 'package:practice/changecardname.dart';
 
-
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
 
@@ -15,7 +14,7 @@ class _HomepageState extends State<Homepage> {
   var MyText = "Change Me";
   @override
   void initState() {
-    // TODO: implement initState to initialize
+    // TODO: implement initState to initialized
     super.initState();
   }
 
@@ -37,26 +36,26 @@ class _HomepageState extends State<Homepage> {
         // this is used for Card widget
         child: Card(
           // This is used  for Column Widget
-          child: changenamecard(MyText: MyText, nameController: _nameController),
+          child:
+              changenamecard(MyText: MyText, nameController: _nameController),
         ),
       ),
       // This is calling of Mydrawer class
-      drawer:Mydrawer(),
-      
-    
-      );
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          MyText = _nameController.text;
-          setState(() {});
-        },
-        child: Icon(Icons.change_circle),
-      );
+      drawer: Mydrawer(),
+    );
+    // This
+    floatingActionButtonLocation:
+    FloatingActionButtonLocation.endFloat;
+    floatingActionButton:
+    FloatingActionButton(
+      onPressed: () {
+        MyText = _nameController.text;
+        setState(() {});
+      },
+      child: Icon(Icons.change_circle),
+    );
   }
 }
-
-
 
 class TextField extends StatelessWidget {
   const TextField({
