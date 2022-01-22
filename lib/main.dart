@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // main function of the program
@@ -11,8 +11,21 @@ void main() {
 }
 
 // stateless widgets
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
+
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  late TextEditingController _nameController = TextEditingController();
+  var MyText = "Change Me";
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,17 +49,27 @@ class Homepage extends StatelessWidget {
                 "assets/bg.jpeg",
                 fit: BoxFit.cover,
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                MyText,
+                style: TextStyle(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red),
+              ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: SizedBox(
-                  height: 50,
-                  child: Text(
-                    "Change",
-                    style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red),
-                  ),
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _nameController,
+                  keyboardType: TextInputType.text,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(9.0)),
+                      hintText: "Enter Something Here",
+                      labelText: "Name"),
                 ),
               ),
             ],
@@ -105,8 +128,11 @@ class Homepage extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.edit),
+        onPressed: () {
+          MyText = _nameController.text;
+          setState(() {});
+        },
+        child: Icon(Icons.change_circle),
       ),
     );
   }
