@@ -15,7 +15,7 @@ class _HomepageState extends State<Homepage> {
   var MyText = "Change Me";
   @override
   void initState() {
-    // TODO: implement initState to initialize
+    // TODO: implement initState to initialized
     super.initState();
   }
 
