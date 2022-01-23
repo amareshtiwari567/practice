@@ -12,7 +12,7 @@ void main() {
     title: "Demo",
     // This is calling Home page
     home: Homepage(),
-    // This tells about the Theme of Home Page
+    // This tells about the Theme of HomePage
     theme: ThemeData(primarySwatch: Colors.deepOrange),
   ));
 }
