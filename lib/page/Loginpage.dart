@@ -61,7 +61,10 @@ class _LoginpageState extends State<Loginpage> {
                           padding: EdgeInsets.all(18.0),
                           child: RaisedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>Homepage()))
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Homepage()));
                             },
                             child: Text("SignIn "),
                             color: Colors.blue,
