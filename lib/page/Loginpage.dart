@@ -47,7 +47,7 @@ class _LoginpageState extends State<Loginpage> {
                                   keyboardType: TextInputType.visiblePassword,
                                   obscureText: true,
                                   decoration: InputDecoration(
-                                      hintText: "Enter the Password",
+                                      hintText: "Enter Password",
                                       labelText: "Password"),
                                 ),
                               ],
