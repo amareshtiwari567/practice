@@ -1,7 +1,4 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:practice/bgimage.dart';
-import 'package:practice/changecardname.dart';
 import 'package:practice/page/Home.dart';
 
 import 'Mydrawer.dart';
