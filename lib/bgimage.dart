@@ -10,6 +10,8 @@ class bgimage extends StatelessWidget {
       "assets/bg.jpeg",
       // this is used for mainatain Picture
       fit: BoxFit.cover,
+      color: Colors.black.withOpacity(0.8),
+      colorBlendMode: BlendMode.darken,
     );
   }
 }

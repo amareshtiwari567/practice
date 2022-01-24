@@ -1,8 +1,11 @@
 // ignore: file_names
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:practice/Mydrawer.dart';
 import 'package:practice/changecardname.dart';
+import 'package:http/http.dart' as http;
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -14,48 +17,40 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   late TextEditingController _nameController = TextEditingController();
   var MyText = "Change Me";
+  var url = "https://jsonplaceholder.typicode.com/photos";
+  var data;
   @override
   void initState() {
     // TODO: implement initState to initialized
     super.initState();
   }
 
+  Future<http.Response> fetchAlbum() {
+    return http.get(Uri.parse(url));
+    print(url);
+  }
+
   @override
   Widget build(BuildContext context) {
-    // ignore: dead_code
     return Scaffold(
-        backgroundColor: Colors.amber,
-        // scaffold used for predefined templets
-        // used for Appbar
+        backgroundColor: Colors.white12,
         appBar: AppBar(
-          // This is the Title of the Application which will show the top of the AppBar
           title: const Text("Demo Application"),
-          // Title will be situated in the center
           centerTitle: true,
         ),
-        // This is the body of the Application
-        body: Center(
-          // this is used for Card widget to crate the Card widget
-          child: Card(
-            // This is used  for Column Widget
-            child:
-                changenamecard(MyText: MyText, nameController: _nameController),
-          ),
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: data != null
+              ? SingleChildScrollView(child: Card())
+              : Center(child: CircularProgressIndicator()),
         ),
-        // This is calling of Mydrawer class
         drawer: Mydrawer(),
-        // This tells about the Floating action button and their location
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-        floatingActionButton:
-            // This tell about,when pressed the Button What action will perform
-            FloatingActionButton(
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // what will be managed
             MyText = _nameController.text;
-            // It tells about the State
             setState(() {});
           },
-          // This is used for Icon Button ,Which are Located in the Right bottom allingment
           child: Icon(Icons.change_circle),
         ));
   }
