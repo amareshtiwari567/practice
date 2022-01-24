@@ -35,7 +35,7 @@ class _HomepageState extends State<Homepage> {
         ),
         // This is the body of the Application
         body: Center(
-          // this is used for Card widget
+          // this is used for Card widget to crate the Card widget
           child: Card(
             // This is used  for Column Widget
             child:
