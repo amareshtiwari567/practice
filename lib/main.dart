@@ -1,8 +1,6 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:practice/bgimage.dart';
-import 'package:practice/changecardname.dart';
 import 'package:practice/page/Home.dart';
+import 'package:practice/page/Loginpage.dart';
 
 import 'Mydrawer.dart';
 
@@ -11,8 +9,8 @@ void main() {
   runApp(MaterialApp(
     title: "Demo",
     // This is calling Home page
-    home: Homepage(),
-    // This tells about the Theme of Home Page
+    home: Loginpage(),
+    // This tells about the Theme of HomePage
     theme: ThemeData(primarySwatch: Colors.deepOrange),
   ));
 }
