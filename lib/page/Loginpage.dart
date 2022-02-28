@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:practice/bgimage.dart';
 import 'package:practice/page/Home.dart';
@@ -31,7 +33,7 @@ class _LoginpageState extends State<Loginpage> {
             bgimage(),
             Center(
               child: Padding(
-                padding: EdgeInsets.all(11.0),
+                padding: EdgeInsets.all(10.0),
                 child: SingleChildScrollView(
                   child: Card(
                     child: Column(
@@ -69,14 +71,17 @@ class _LoginpageState extends State<Loginpage> {
                           child: RaisedButton(
                             onPressed: () {
                               // its sends to the next page
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Homepage()));
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+
+                              //         builder: (context) => Homepage()));
+
+                              Navigator.pushReplacementNamed(context, "/home");
                             },
                             child: Text("SignIn "),
                             color: Colors.blue,
-                            textColor: Colors.black,
+                            textColor: Colors.black12,
                           ),
                         ),
                       ],
