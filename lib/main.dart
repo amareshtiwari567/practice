@@ -1,66 +1,74 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:practice/page/infocard.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: "Screen",
-    home: const screen(),
-    theme: ThemeData(backgroundColor: Colors.indigo[900]),
+    title: "Card",
+    home: Cardscreen(),
   ));
 }
 
-class screen extends StatelessWidget {
-  const screen({Key? key}) : super(key: key);
+class Cardscreen extends StatelessWidget {
+  const Cardscreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("Screen"),
-      // ),
-      backgroundColor: Colors.indigo[900],
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(18),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: const Text(
-                  "Salary Slip Employee",
+        // appBar: AppBar(
+        //   title: Text("Home"),
+        //   backgroundColor: Colors.blue,
+        //   centerTitle: true,
+        // ),
+
+        backgroundColor: Colors.grey,
+        body: Center(
+          child: SafeArea(
+            child: Column(
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.blue,
+                  backgroundImage: AssetImage('images/picture.jpg'),
+                ),
+                Text(
+                  "Amaresh Tiwari",
                   style: TextStyle(
-                      fontStyle: FontStyle.normal,
-                      color: Colors.white,
-                      fontSize: 25),
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
-              Text(
-                "Sign In",
-                style: TextStyle(fontStyle: FontStyle.normal),
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: "Mobile Number",
-                  fillColor: Colors.white,
-                  filled: true, // dont forget this line
+                Text(
+                  "Software Developer",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 20),
-              ButtonTheme(
-                buttonColor: Colors.blue,
-                minWidth: 500.0,
-                height: 50.0,
-                child: RaisedButton(
-                  onPressed: () {},
-                  child: const Text("Sign In"),
-                ),
-              ),
-            ],
+                infocard(
+                    text: "phone", icon: Icons.phone, onPressed: () async {}),
+                infocard(
+                    text: "email@gmail.com",
+                    icon: Icons.email,
+                    onPressed: () async {}),
+                infocard(
+                    text: "Company Name",
+                    icon: Icons.explore,
+                    onPressed: () async {}),
+                infocard(
+                    text: "Feedback",
+                    icon: Icons.feedback,
+                    onPressed: () async {}),
+                infocard(
+                    text: "Terms & condition",
+                    icon: Icons.ac_unit_rounded,
+                    onPressed: () async {}),
+                infocard(
+                    text: "Logout", icon: Icons.logout, onPressed: () async {}),
+                Text("Version:1.1.8"),
+              ],
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
