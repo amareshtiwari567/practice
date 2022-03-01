@@ -26,7 +26,7 @@ class Cardscreen extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 CircleAvatar(
-                  radius: 50,
+                  radius: 51,
                   backgroundColor: Colors.blue,
                   backgroundImage: AssetImage('images/picture.jpg'),
                 ),
