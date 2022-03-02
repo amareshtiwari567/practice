@@ -53,7 +53,7 @@ class Cardscreen extends StatelessWidget {
                   infocard(
                       text: "phone", icon: Icons.phone, onPressed: () async {}),
                   infocard(
-                      text: "email@gmail.com",
+                      text: "Email@gmail.com",
                       icon: Icons.email,
                       onPressed: () async {}),
                   infocard(
