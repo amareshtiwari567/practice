@@ -19,7 +19,7 @@ class Cardscreen extends StatelessWidget {
           backgroundColor: Colors.blue,
           centerTitle: true,
         ),
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.deepOrangeAccent,
         body: Padding(
           padding: const EdgeInsets.all(5.0),
           child: Center(
