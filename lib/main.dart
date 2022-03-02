@@ -14,38 +14,41 @@ class Cardscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text("Home"),
-        //   backgroundColor: Colors.blue,
-        //   centerTitle: true,
-        // ),
-
+        appBar: AppBar(
+          title: Text("Home"),
+          backgroundColor: Colors.blue,
+          centerTitle: true,
+        ),
         backgroundColor: Colors.grey,
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(5.0),
           child: Center(
             child: SafeArea(
               child: Column(
                 children: <Widget>[
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.blue,
-                    backgroundImage: AssetImage('images/picture.jpg'),
+                  Padding(
+                    padding: const EdgeInsets.all(48.0),
+                    child: CircleAvatar(
+                      radius: 55,
+                      backgroundColor: Colors.blue,
+                      backgroundImage: const AssetImage('images/picture.jpg'),
+                    ),
                   ),
+                  // Spacer(flex: 1),
                   Text(
                     "Amaresh Tiwari",
                     style: TextStyle(
                       fontSize: 25,
                       color: Colors.white,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w100,
+                      wordSpacing: 3,
                     ),
                   ),
+                  // Spacer(flex: 1),
                   Text(
                     "Software Developer",
                     style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                    ),
+                        fontSize: 20, color: Colors.black, wordSpacing: 2),
                   ),
                   infocard(
                       text: "phone", icon: Icons.phone, onPressed: () async {}),
