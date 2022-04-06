@@ -112,6 +112,7 @@ class MyStatelessWidget extends StatelessWidget {
                                   title: Text("Amaresh Tiwari",
                                       style: TextStyle(
                                           color: Colors.black,
+                                          backgroundColor: Colors.white,
                                           fontWeight: FontWeight.bold)),
                                   leading: CircleAvatar(
                                     maxRadius: 50,
