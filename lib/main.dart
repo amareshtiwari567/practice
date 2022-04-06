@@ -89,97 +89,123 @@ class MyStatelessWidget extends StatelessWidget {
                     // isScrollable: true,
                   ),
                 ),
-                body: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      // color: Colors.amberAccent,
-                      child: ListTile(
-                        trailing: Icon(Icons.hub),
-                        title: Text("Amaresh Tiwari"),
+                body: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10,
                       ),
-                    );
-                  },
-                  itemCount: 10,
-                  //   children: const <Widget>[
-                  //     ListTile(
-                  //       leading: CircleAvatar(
-                  //         backgroundImage: AssetImage("gita.jpeg"),
-                  //       ),
-                  //       title: Text(
-                  //         "Gita",
-                  //         style: TextStyle(fontSize: 20),
-                  //       ),
-                  //       subtitle: Text(
-                  //         "Delivery Expected by 31 March",
-                  //         style: TextStyle(fontSize: 20),
-                  //       ),
-                  //       // selected: true,
-                  //     ),
-                  //     Padding(
-                  //       padding: EdgeInsets.all(0),
-                  //       child: ListTile(
-                  //         subtitle: Text(
-                  //           "Delivery Expected by 31 March",
-                  //           style: TextStyle(fontSize: 20),
-                  //         ),
-                  //         leading: CircleAvatar(
-                  //             backgroundImage: AssetImage("gita.jpeg")),
-                  //         title: Text(
-                  //           "ShreemadBhagwadGita",
-                  //           style: TextStyle(fontSize: 20),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Padding(
-                  //       padding: EdgeInsets.all(0),
-                  //       child: SizedBox(
-                  //         height: 50,
-                  //         width: 50,
-                  //         // child:
-                  //         //  Padding(
-                  //         // padding: EdgeInsets.all(8.0),
-                  //         child: SizedBox(
-                  //           height: 90,
-                  //           child: ListTile(
-                  //             // contentPadding: EdgeInsets.symmetric(
-                  //             //     vertical: 0, horizontal: 18),
-                  //             isThreeLine: true,
-                  //             // horizontalTitleGap: 10,
-                  //             // dense: true,
-                  //             // visualDensity: VisualDensity(vertical: 4),
-                  //             subtitle: Text(
-                  //               "Delivery Expected by 31 March\nDelivered",
-                  //               style: TextStyle(fontSize: 20),
-                  //             ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            // color: Colors.amberAccent,
+                            child: Card(
+                              // color: Colors.deepOrange,
+                              // elevation: 2,
+                              child: SizedBox(
+                                height: 90,
+                                child: ListTile(
+                                  trailing: Icon(Icons.hub),
+                                  title: Text("Amaresh Tiwari",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold)),
+                                  leading: CircleAvatar(
+                                    maxRadius: 50,
+                                    backgroundImage: AssetImage("gita.jpeg"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        itemCount: 50,
+                        //   children: const <Widget>[
+                        //     ListTile(
+                        //       leading: CircleAvatar(
+                        //         backgroundImage: AssetImage("gita.jpeg"),
+                        //       ),
+                        //       title: Text(
+                        //         "Gita",
+                        //         style: TextStyle(fontSize: 20),
+                        //       ),
+                        //       subtitle: Text(
+                        //         "Delivery Expected by 31 March",
+                        //         style: TextStyle(fontSize: 20),
+                        //       ),
+                        //       // selected: true,
+                        //     ),
+                        //     Padding(
+                        //       padding: EdgeInsets.all(0),
+                        //       child: ListTile(
+                        //         subtitle: Text(
+                        //           "Delivery Expected by 31 March",
+                        //           style: TextStyle(fontSize: 20),
+                        //         ),
+                        //         leading: CircleAvatar(
+                        //             backgroundImage: AssetImage("gita.jpeg")),
+                        //         title: Text(
+                        //           "ShreemadBhagwadGita",
+                        //           style: TextStyle(fontSize: 20),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     Padding(
+                        //       padding: EdgeInsets.all(0),
+                        //       child: SizedBox(
+                        //         height: 50,
+                        //         width: 50,
+                        //         // child:
+                        //         //  Padding(
+                        //         // padding: EdgeInsets.all(8.0),
+                        //         child: SizedBox(
+                        //           height: 90,
+                        //           child: ListTile(
+                        //             // contentPadding: EdgeInsets.symmetric(
+                        //             //     vertical: 0, horizontal: 18),
+                        //             isThreeLine: true,
+                        //             // horizontalTitleGap: 10,
+                        //             // dense: true,
+                        //             // visualDensity: VisualDensity(vertical: 4),
+                        //             subtitle: Text(
+                        //               "Delivery Expected by 31 March\nDelivered",
+                        //               style: TextStyle(fontSize: 20),
+                        //             ),
 
-                  //             leading: CircleAvatar(
-                  //               backgroundImage: AssetImage("gita.jpeg"),
-                  //             ),
-                  //             title: Text(
-                  //               "Shreemadbhagwadgita",
-                  //               style: TextStyle(fontSize: 20),
-                  //             ),
-                  //             // tileColor: Colors.amberAccent,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     // ),
-                  //   ],
-                  // ),
-                  // height: 80,
-                  // children: <Widget>[
-                  //   TabBarView(
-                  //     children: tabs.map((Tab tab) {
-                  //       return Center(
-                  //         child: Text(
-                  //           '${tab.text!} Tab',
-                  //           style: Theme.of(context).textTheme.headline5,
-                  //         ),
-                  //       );
-                  //     }).toList(),
-                  //   ),
-                  // ],
+                        //             leading: CircleAvatar(
+                        //               backgroundImage: AssetImage("gita.jpeg"),
+                        //             ),
+                        //             title: Text(
+                        //               "Shreemadbhagwadgita",
+                        //               style: TextStyle(fontSize: 20),
+                        //             ),
+                        //             // tileColor: Colors.amberAccent,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     // ),
+                        //   ],
+                        // ),
+                        // height: 80,
+                        // children: <Widget>[
+                        //   TabBarView(
+                        //     children: tabs.map((Tab tab) {
+                        //       return Center(
+                        //         child: Text(
+                        //           '${tab.text!} Tab',
+                        //           style: Theme.of(context).textTheme.headline5,
+                        //         ),
+                        //       );
+                        //     }).toList(),
+                        //   ),
+                        // ],
+                      ),
+                    ],
+                  ),
                 )));
       }),
     );
