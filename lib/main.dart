@@ -29,39 +29,40 @@ class _MyAppState extends State<MyApp> {
 const List<Tab> tabs = <Tab>[
   Tab(
     text: 'All',
-    icon: Icon(
-      Icons.account_circle,
-      // size: 45,
-    ),
+
+    // icon: Icon(
+    //   Icons.account_circle,
+    // size: 45,
   ),
+  // ),
   Tab(
     text: 'Pending',
-    icon: Icon(
-      Icons.pending,
-      // size: 45
-    ),
+    // icon: Icon(
+    //   Icons.pending,
+    // size: 45
   ),
+  // ),
   Tab(
     text: 'Delivered',
-    icon: Icon(
-      Icons.delivery_dining_sharp,
-      // size: 45
-    ),
+    // icon: Icon(
+    //   Icons.delivery_dining_sharp,
+    // size: 45
+    // ),
   ),
   Tab(
     text: 'Cancelled',
-    icon: Icon(
-      Icons.cancel,
+    // icon: Icon(
+    //   Icons.cancel,
 
-      //  size: 45
-    ),
+    //  size: 45
+    // ),
   ),
   Tab(
     text: 'Return',
-    icon: Icon(
-      Icons.assignment_return,
-      // size: 45
-    ),
+    // icon: Icon(
+    //   Icons.assignment_return,
+    //   // size: 45
+    // ),
   ),
 ];
 
@@ -84,6 +85,8 @@ class MyStatelessWidget extends StatelessWidget {
                   // centerTitle: true,
                   backgroundColor: Colors.deepOrange,
                   bottom: TabBar(
+                    // automaticIndicatorColorAdjustment: true,
+                    labelColor: Colors.black,
                     indicatorColor: Colors.white,
                     tabs: tabs,
                     // isScrollable: true,
@@ -103,19 +106,41 @@ class MyStatelessWidget extends StatelessWidget {
                           return Container(
                             // color: Colors.amberAccent,
                             child: Card(
+                              margin: EdgeInsets.all(5),
                               // color: Colors.deepOrange,
                               // elevation: 2,
                               child: SizedBox(
-                                height: 90,
+                                height: 150,
                                 child: ListTile(
-                                  trailing: Icon(Icons.hub),
-                                  title: Text("Amaresh Tiwari",
+                                  isThreeLine: true,
+                                  trailing: Text(
+                                    "28/03/2022",
+                                    style: TextStyle(color: Colors.green),
+                                  ),
+                                  title: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child:
+                                        Text("Shree Mad Bgagwad Gita\nRs-399",
+
+                                            // textWidthBasis:
+                                            // TextWidthBasis.longestLine,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 20,
+                                                // backgroundColor: Colors.blue,
+                                                fontWeight: FontWeight.bold)),
+                                  ),
+                                  subtitle: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      "Delivery Expected by 31 March\nDelivered",
                                       style: TextStyle(
-                                          color: Colors.black,
-                                          backgroundColor: Colors.white,
-                                          fontWeight: FontWeight.bold)),
+                                          color: Colors.black, fontSize: 18),
+                                    ),
+                                  ),
                                   leading: CircleAvatar(
-                                    maxRadius: 50,
+                                    maxRadius: 40,
+                                    // minRadius: 10,
                                     backgroundImage: AssetImage("gita.jpeg"),
                                   ),
                                 ),
