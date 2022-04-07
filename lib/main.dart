@@ -126,7 +126,7 @@ class MyStatelessWidget extends StatelessWidget {
                                             // TextWidthBasis.longestLine,
                                             style: TextStyle(
                                                 color: Colors.black,
-                                                fontSize: 20,
+                                                fontSize: 21,
                                                 // backgroundColor: Colors.blue,
                                                 fontWeight: FontWeight.bold)),
                                   ),
