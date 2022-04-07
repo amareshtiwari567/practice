@@ -110,40 +110,52 @@ class MyStatelessWidget extends StatelessWidget {
                               // color: Colors.deepOrange,
                               // elevation: 2,
                               child: SizedBox(
-                                height: 150,
+                                height: 120,
                                 child: ListTile(
-                                  isThreeLine: true,
-                                  trailing: Text(
-                                    "28/03/2022",
-                                    style: TextStyle(color: Colors.green),
-                                  ),
-                                  title: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child:
-                                        Text("Shree Mad Bgagwad Gita\nRs-399",
-
-                                            // textWidthBasis:
-                                            // TextWidthBasis.longestLine,
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 22,
-                                                // backgroundColor: Colors.blue,
-                                                fontWeight: FontWeight.bold)),
-                                  ),
-                                  subtitle: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Delivery Expected by 31 March\nDelivered",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
+                                    isThreeLine: true,
+                                    trailing: Text(
+                                      "28/03/2022",
+                                      style: TextStyle(color: Colors.green),
                                     ),
-                                  ),
-                                  leading: CircleAvatar(
-                                    maxRadius: 40,
-                                    // minRadius: 10,
-                                    backgroundImage: AssetImage("gita.jpeg"),
-                                  ),
-                                ),
+                                    title: SizedBox(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                                "Order id is 0012345\nDelivery Expected by 31 of March",
+
+                                                // textWidthBasis:
+                                                // TextWidthBasis.longestLine,
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 10,
+                                                    // fontFamily: ,
+                                                    // backgroundColor: Colors.blue,
+                                                    fontWeight:
+                                                        FontWeight.w800)),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    subtitle: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        "Shree Mad Bgagwad Gita\nRs-399",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    leading: Image.asset(
+                                      "gita.jpeg",
+                                      width: 90,
+                                      height: 300,
+                                      fit: BoxFit.fill,
+                                    )),
                               ),
                             ),
                           );
