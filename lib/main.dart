@@ -29,39 +29,40 @@ class _MyAppState extends State<MyApp> {
 const List<Tab> tabs = <Tab>[
   Tab(
     text: 'All',
-    icon: Icon(
-      Icons.account_circle,
-      // size: 45,
-    ),
+
+    // icon: Icon(
+    //   Icons.account_circle,
+    // size: 45,
   ),
+  // ),
   Tab(
     text: 'Pending',
-    icon: Icon(
-      Icons.pending,
-      // size: 45
-    ),
+    // icon: Icon(
+    //   Icons.pending,
+    // size: 45
   ),
+  // ),
   Tab(
     text: 'Delivered',
-    icon: Icon(
-      Icons.delivery_dining_sharp,
-      // size: 45
-    ),
+    // icon: Icon(
+    //   Icons.delivery_dining_sharp,
+    // size: 45
+    // ),
   ),
   Tab(
     text: 'Cancelled',
-    icon: Icon(
-      Icons.cancel,
+    // icon: Icon(
+    //   Icons.cancel,
 
-      //  size: 45
-    ),
+    //  size: 45
+    // ),
   ),
   Tab(
     text: 'Return',
-    icon: Icon(
-      Icons.assignment_return,
-      // size: 45
-    ),
+    // icon: Icon(
+    //   Icons.assignment_return,
+    //   // size: 45
+    // ),
   ),
 ];
 
@@ -84,102 +85,153 @@ class MyStatelessWidget extends StatelessWidget {
                   // centerTitle: true,
                   backgroundColor: Colors.deepOrange,
                   bottom: TabBar(
+                    // automaticIndicatorColorAdjustment: true,
+                    labelColor: Colors.black,
                     indicatorColor: Colors.white,
                     tabs: tabs,
                     // isScrollable: true,
                   ),
                 ),
-                body: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      // color: Colors.amberAccent,
-                      child: ListTile(
-                        trailing: Icon(Icons.hub),
-                        title: Text("Amaresh Tiwari"),
+                body: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 10,
                       ),
-                    );
-                  },
-                  itemCount: 10,
-                  //   children: const <Widget>[
-                  //     ListTile(
-                  //       leading: CircleAvatar(
-                  //         backgroundImage: AssetImage("gita.jpeg"),
-                  //       ),
-                  //       title: Text(
-                  //         "Gita",
-                  //         style: TextStyle(fontSize: 20),
-                  //       ),
-                  //       subtitle: Text(
-                  //         "Delivery Expected by 31 March",
-                  //         style: TextStyle(fontSize: 20),
-                  //       ),
-                  //       // selected: true,
-                  //     ),
-                  //     Padding(
-                  //       padding: EdgeInsets.all(0),
-                  //       child: ListTile(
-                  //         subtitle: Text(
-                  //           "Delivery Expected by 31 March",
-                  //           style: TextStyle(fontSize: 20),
-                  //         ),
-                  //         leading: CircleAvatar(
-                  //             backgroundImage: AssetImage("gita.jpeg")),
-                  //         title: Text(
-                  //           "ShreemadBhagwadGita",
-                  //           style: TextStyle(fontSize: 20),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     Padding(
-                  //       padding: EdgeInsets.all(0),
-                  //       child: SizedBox(
-                  //         height: 50,
-                  //         width: 50,
-                  //         // child:
-                  //         //  Padding(
-                  //         // padding: EdgeInsets.all(8.0),
-                  //         child: SizedBox(
-                  //           height: 90,
-                  //           child: ListTile(
-                  //             // contentPadding: EdgeInsets.symmetric(
-                  //             //     vertical: 0, horizontal: 18),
-                  //             isThreeLine: true,
-                  //             // horizontalTitleGap: 10,
-                  //             // dense: true,
-                  //             // visualDensity: VisualDensity(vertical: 4),
-                  //             subtitle: Text(
-                  //               "Delivery Expected by 31 March\nDelivered",
-                  //               style: TextStyle(fontSize: 20),
-                  //             ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (BuildContext context, int index) {
+                          return Container(
+                            // color: Colors.amberAccent,
+                            child: Card(
+                              margin: EdgeInsets.all(5),
+                              // color: Colors.deepOrange,
+                              // elevation: 2,
+                              child: SizedBox(
+                                height: 150,
+                                child: ListTile(
+                                  isThreeLine: true,
+                                  trailing: Text(
+                                    "28/03/2022",
+                                    style: TextStyle(color: Colors.green),
+                                  ),
+                                  title: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child:
+                                        Text("Shree Mad Bgagwad Gita\nRs-399",
 
-                  //             leading: CircleAvatar(
-                  //               backgroundImage: AssetImage("gita.jpeg"),
-                  //             ),
-                  //             title: Text(
-                  //               "Shreemadbhagwadgita",
-                  //               style: TextStyle(fontSize: 20),
-                  //             ),
-                  //             // tileColor: Colors.amberAccent,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //     // ),
-                  //   ],
-                  // ),
-                  // height: 80,
-                  // children: <Widget>[
-                  //   TabBarView(
-                  //     children: tabs.map((Tab tab) {
-                  //       return Center(
-                  //         child: Text(
-                  //           '${tab.text!} Tab',
-                  //           style: Theme.of(context).textTheme.headline5,
-                  //         ),
-                  //       );
-                  //     }).toList(),
-                  //   ),
-                  // ],
+                                            // textWidthBasis:
+                                            // TextWidthBasis.longestLine,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 22,
+                                                // backgroundColor: Colors.blue,
+                                                fontWeight: FontWeight.bold)),
+                                  ),
+                                  subtitle: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      "Delivery Expected by 31 March\nDelivered",
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 18),
+                                    ),
+                                  ),
+                                  leading: CircleAvatar(
+                                    maxRadius: 40,
+                                    // minRadius: 10,
+                                    backgroundImage: AssetImage("gita.jpeg"),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        itemCount: 50,
+                        //   children: const <Widget>[
+                        //     ListTile(
+                        //       leading: CircleAvatar(
+                        //         backgroundImage: AssetImage("gita.jpeg"),
+                        //       ),
+                        //       title: Text(
+                        //         "Gita",
+                        //         style: TextStyle(fontSize: 20),
+                        //       ),
+                        //       subtitle: Text(
+                        //         "Delivery Expected by 31 March",
+                        //         style: TextStyle(fontSize: 20),
+                        //       ),
+                        //       // selected: true,
+                        //     ),
+                        //     Padding(
+                        //       padding: EdgeInsets.all(0),
+                        //       child: ListTile(
+                        //         subtitle: Text(
+                        //           "Delivery Expected by 31 March",
+                        //           style: TextStyle(fontSize: 20),
+                        //         ),
+                        //         leading: CircleAvatar(
+                        //             backgroundImage: AssetImage("gita.jpeg")),
+                        //         title: Text(
+                        //           "ShreemadBhagwadGita",
+                        //           style: TextStyle(fontSize: 20),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     Padding(
+                        //       padding: EdgeInsets.all(0),
+                        //       child: SizedBox(
+                        //         height: 50,
+                        //         width: 50,
+                        //         // child:
+                        //         //  Padding(
+                        //         // padding: EdgeInsets.all(8.0),
+                        //         child: SizedBox(
+                        //           height: 90,
+                        //           child: ListTile(
+                        //             // contentPadding: EdgeInsets.symmetric(
+                        //             //     vertical: 0, horizontal: 18),
+                        //             isThreeLine: true,
+                        //             // horizontalTitleGap: 10,
+                        //             // dense: true,
+                        //             // visualDensity: VisualDensity(vertical: 4),
+                        //             subtitle: Text(
+                        //               "Delivery Expected by 31 March\nDelivered",
+                        //               style: TextStyle(fontSize: 20),
+                        //             ),
+
+                        //             leading: CircleAvatar(
+                        //               backgroundImage: AssetImage("gita.jpeg"),
+                        //             ),
+                        //             title: Text(
+                        //               "Shreemadbhagwadgita",
+                        //               style: TextStyle(fontSize: 20),
+                        //             ),
+                        //             // tileColor: Colors.amberAccent,
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //     // ),
+                        //   ],
+                        // ),
+                        // height: 80,
+                        // children: <Widget>[
+                        //   TabBarView(
+                        //     children: tabs.map((Tab tab) {
+                        //       return Center(
+                        //         child: Text(
+                        //           '${tab.text!} Tab',
+                        //           style: Theme.of(context).textTheme.headline5,
+                        //         ),
+                        //       );
+                        //     }).toList(),
+                        //   ),
+                        // ],
+                      ),
+                    ],
+                  ),
                 )));
       }),
     );
