@@ -1,239 +1,146 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import '';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(new MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: new MyApp(),
+  ));
+}
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  static const String _title = 'Flutter Code Sample';
-  // const title = 'basic list';
-
   @override
-  State<MyApp> createState() => _MyAppState();
+  _State createState() => new _State();
 }
 
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: MyApp._title,
-      home: MyStatelessWidget(),
-    );
-  }
-}
-
-const List<Tab> tabs = <Tab>[
-  Tab(
-    text: 'All',
-
-    // icon: Icon(
-    //   Icons.account_circle,
-    // size: 45,
-  ),
-  // ),
-  Tab(
-    text: 'Pending',
-    // icon: Icon(
-    //   Icons.pending,
-    // size: 45
-  ),
-  // ),
-  Tab(
-    text: 'Delivered',
-    // icon: Icon(
-    //   Icons.delivery_dining_sharp,
-    // size: 45
-    // ),
-  ),
-  Tab(
-    text: 'Cancelled',
-    // icon: Icon(
-    //   Icons.cancel,
-
-    //  size: 45
-    // ),
-  ),
-  Tab(
-    text: 'Return',
-    // icon: Icon(
-    //   Icons.assignment_return,
-    //   // size: 45
-    // ),
-  ),
-];
-
-class MyStatelessWidget extends StatelessWidget {
-  const MyStatelessWidget({Key? key}) : super(key: key);
+class _State extends State<MyApp> {
+  var child;
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: tabs.length,
-      child: Builder(builder: (BuildContext context) {
-        final TabController tabController = DefaultTabController.of(context)!;
-        tabController.addListener(() {
-          if (!tabController.indexIsChanging) {}
-        });
-        return SizedBox(
-            child: Scaffold(
-                appBar: AppBar(
-                  title: Text("Order"),
-                  // centerTitle: true,
-                  backgroundColor: Colors.deepOrange,
-                  bottom: TabBar(
-                    // automaticIndicatorColorAdjustment: true,
-                    labelColor: Colors.black,
-                    indicatorColor: Colors.white,
-                    tabs: tabs,
-                    // isScrollable: true,
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Order Detail'),
+        backgroundColor: Colors.red,
+      ),
+      body: new SingleChildScrollView(
+        // padding: new EdgeInsets.all(18.0),
+        // child: new Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new Column(
+            children: <Widget>[
+              SizedBox(
+                height: 100,
+                width: 1000,
+                child: new Card(
+                  semanticContainer: true,
+                  color: Colors.orange,
+                  child: new Container(
+                    height: 120,
+                    width: 800,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: new Text(
+                                'Order  can be tracked by order id 20202020\nTracking link is shared by\nManage who can access '),
+                          ),
+                          new Text('Manage Who can Access'),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                body: SingleChildScrollView(
-                  physics: BouncingScrollPhysics(),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            // color: Colors.amberAccent,
-                            child: Card(
-                              margin: EdgeInsets.all(5),
-                              // color: Colors.deepOrange,
-                              // elevation: 2,
-                              child: SizedBox(
-                                height: 150,
-                                child: ListTile(
-                                  isThreeLine: true,
-                                  trailing: Text(
-                                    "28/03/2022",
-                                    style: TextStyle(color: Colors.green),
-                                  ),
-                                  title: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child:
-                                        Text("Shree Mad Bgagwad Gita\nRs-399",
-
-                                            // textWidthBasis:
-                                            // TextWidthBasis.longestLine,
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 22,
-                                                // backgroundColor: Colors.blue,
-                                                fontWeight: FontWeight.bold)),
-                                  ),
-                                  subtitle: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      "Delivery Expected by 31 March\nDelivered",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
-                                    ),
-                                  ),
-                                  leading: CircleAvatar(
-                                    maxRadius: 40,
-                                    // minRadius: 10,
-                                    backgroundImage: AssetImage("gita.jpeg"),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                        itemCount: 50,
-                        //   children: const <Widget>[
-                        //     ListTile(
-                        //       leading: CircleAvatar(
-                        //         backgroundImage: AssetImage("gita.jpeg"),
-                        //       ),
-                        //       title: Text(
-                        //         "Gita",
-                        //         style: TextStyle(fontSize: 20),
-                        //       ),
-                        //       subtitle: Text(
-                        //         "Delivery Expected by 31 March",
-                        //         style: TextStyle(fontSize: 20),
-                        //       ),
-                        //       // selected: true,
-                        //     ),
-                        //     Padding(
-                        //       padding: EdgeInsets.all(0),
-                        //       child: ListTile(
-                        //         subtitle: Text(
-                        //           "Delivery Expected by 31 March",
-                        //           style: TextStyle(fontSize: 20),
-                        //         ),
-                        //         leading: CircleAvatar(
-                        //             backgroundImage: AssetImage("gita.jpeg")),
-                        //         title: Text(
-                        //           "ShreemadBhagwadGita",
-                        //           style: TextStyle(fontSize: 20),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     Padding(
-                        //       padding: EdgeInsets.all(0),
-                        //       child: SizedBox(
-                        //         height: 50,
-                        //         width: 50,
-                        //         // child:
-                        //         //  Padding(
-                        //         // padding: EdgeInsets.all(8.0),
-                        //         child: SizedBox(
-                        //           height: 90,
-                        //           child: ListTile(
-                        //             // contentPadding: EdgeInsets.symmetric(
-                        //             //     vertical: 0, horizontal: 18),
-                        //             isThreeLine: true,
-                        //             // horizontalTitleGap: 10,
-                        //             // dense: true,
-                        //             // visualDensity: VisualDensity(vertical: 4),
-                        //             subtitle: Text(
-                        //               "Delivery Expected by 31 March\nDelivered",
-                        //               style: TextStyle(fontSize: 20),
-                        //             ),
-
-                        //             leading: CircleAvatar(
-                        //               backgroundImage: AssetImage("gita.jpeg"),
-                        //             ),
-                        //             title: Text(
-                        //               "Shreemadbhagwadgita",
-                        //               style: TextStyle(fontSize: 20),
-                        //             ),
-                        //             // tileColor: Colors.amberAccent,
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //     // ),
-                        //   ],
-                        // ),
-                        // height: 80,
-                        // children: <Widget>[
-                        //   TabBarView(
-                        //     children: tabs.map((Tab tab) {
-                        //       return Center(
-                        //         child: Text(
-                        //           '${tab.text!} Tab',
-                        //           style: Theme.of(context).textTheme.headline5,
-                        //         ),
-                        //       );
-                        //     }).toList(),
-                        //   ),
-                        // ],
-                      ),
+              ),
+              new Card(
+                child: new Container(
+                  color: Colors.deepOrange,
+                  height: 120,
+                  width: 800,
+                  padding: new EdgeInsets.all(32.0),
+                  child: new Column(
+                    children: <Widget>[new Text(''), new Text('')],
+                  ),
+                ),
+              ),
+              new Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: new Container(
+                  color: Colors.deepOrange,
+                  height: 120,
+                  width: 800,
+                  padding: new EdgeInsets.all(32.0),
+                  child: new Column(
+                    children: <Widget>[
+                      new Text(''),
+                      new Text(''),
                     ],
                   ),
-                )));
-      }),
+                ),
+              ),
+              new Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: new Container(
+                  color: Colors.deepOrange,
+                  height: 120,
+                  width: 800,
+                  padding: new EdgeInsets.all(32.0),
+                  child: new Row(
+                    children: <Widget>[
+                      new Text('Shree Mad Bhagwad Gita'),
+                      new Text('')
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // ),
     );
+
+    // SingleChildScrollView(
+    //   child: Center(
+    //     child: Padding(
+    //       padding: const EdgeInsets.all(8.0),
+    //       child: Column(
+    //         children: [
+    //           Card(
+    //             // elevation: 4,
+    //             color: Colors.grey,
+    //             child: InkWell(
+    //               splashColor: Colors.blue,
+    //               // onTap: () {
+    //               //   debugPrint('Card tapped.');
+    //               // },
+    //               child: const SizedBox(
+    //                 width: 500,
+    //                 height: 100,
+    //                 child: Padding(
+    //                   padding: EdgeInsets.all(8.0),
+    //                   child: Text(
+    //                     'Order can be tracked by 202020202\nTracking Link is shared via SMS',
+    //                     style: TextStyle(
+    //                         fontStyle: FontStyle.normal,
+    //                         color: Colors.black,
+    //                         fontSize: 15),
+    //                   ),
+    //                 ),
+    //               ),
+    //             ),
+    //           ),
+    //         ],
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 }
