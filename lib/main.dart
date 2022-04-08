@@ -1,146 +1,308 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(new MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: new MyApp(),
+  runApp(const MaterialApp(
+    title: "Order List",
+    home: MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  static const String _title = 'Flutter Code Sample';
+
   @override
-  _State createState() => new _State();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _State extends State<MyApp> {
-  var child;
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: MyApp._title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Order List")),
+        body: const Center(
+          child: MyStatefulWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _index = 0;
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Order Detail'),
-        backgroundColor: Colors.red,
-      ),
-      body: new SingleChildScrollView(
-        // padding: new EdgeInsets.all(18.0),
-        // child: new Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new Column(
-            children: <Widget>[
+    return Scaffold(
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          // ListTile(
+          //   leading: FlutterLogo(),
+          //   title: Text('One-line with leading widget'),
+          // ),
+          SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                    "Order can be tracked by 0202020\nTracking link is shared via SMS\n\nManage who can access"),
+              ),
+              height: 120,
+              width: 800,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 7,
+                      offset: Offset(0, 1),
+                    ), // changes position of shadow
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+          Column(
+            children: [
               SizedBox(
-                height: 100,
-                width: 1000,
-                child: new Card(
-                  semanticContainer: true,
-                  color: Colors.orange,
-                  child: new Container(
-                    height: 120,
-                    width: 800,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: new Text(
-                                'Order  can be tracked by order id 20202020\nTracking link is shared by\nManage who can access '),
-                          ),
-                          new Text('Manage Who can Access'),
-                        ],
+                height: 150,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    child: ListTile(
+                      isThreeLine: true,
+                      leading: SizedBox(
+                          height: 100, child: Image.asset("gita.jpeg")),
+                      title: Text(
+                        'Shree Mad Bhagwad Gita\n',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(
+                        "Order id is 0012345\nDelivery Expected by 31 of March",
+                        style: TextStyle(color: Colors.black),
                       ),
                     ),
-                  ),
-                ),
-              ),
-              new Card(
-                child: new Container(
-                  color: Colors.deepOrange,
-                  height: 120,
-                  width: 800,
-                  padding: new EdgeInsets.all(32.0),
-                  child: new Column(
-                    children: <Widget>[new Text(''), new Text('')],
-                  ),
-                ),
-              ),
-              new Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: new Container(
-                  color: Colors.deepOrange,
-                  height: 120,
-                  width: 800,
-                  padding: new EdgeInsets.all(32.0),
-                  child: new Column(
-                    children: <Widget>[
-                      new Text(''),
-                      new Text(''),
-                    ],
-                  ),
-                ),
-              ),
-              new Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: new Container(
-                  color: Colors.deepOrange,
-                  height: 120,
-                  width: 800,
-                  padding: new EdgeInsets.all(32.0),
-                  child: new Row(
-                    children: <Widget>[
-                      new Text('Shree Mad Bhagwad Gita'),
-                      new Text('')
-                    ],
+                    color: Colors.white,
                   ),
                 ),
               ),
             ],
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              // height: 10,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 7,
+                      offset: Offset(0, 1),
+                    ), // changes position of shadow
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Stepper(
+                  steps: <Step>[
+                    Step(
+                      title: const Text(
+                        'Orderd',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      content: Container(
+                          alignment: Alignment.centerLeft,
+                          child: const Text('Expected by Wed 30th March')),
+                    ),
+                    const Step(
+                      title: Text(
+                        'Shipped',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      content: Text('Expected by Wed 30th March'),
+                    ),
+                    const Step(
+                      title: Text(
+                        'Out for Delivery',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      content: Text('Expected by Wed 30th March'),
+                    ),
+                    const Step(
+                      title: Text(
+                        'Delivery',
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                      ),
+                      content: Text('Expected by Wed 30th March'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Text(
+                    //   "Shipping Detail",
+                    //   style: TextStyle(
+                    //       color: Colors.black,
+                    //       fontSize: 17,
+                    //       fontWeight: FontWeight.bold),
+                    // ),
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.home,
+                            size: 40,
+                          ),
+                        ),
+                        Expanded(
+                            child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Shipping Detail",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Amaresh Tiwari",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              Text(
+                                "BBD University Lucknow",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        )),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              height: 120,
+              width: 800,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 7,
+                      offset: Offset(0, 1),
+                    ), // changes position of shadow
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    // Text(
+                    //   "Shipping Detail",
+                    //   style: TextStyle(
+                    //       color: Colors.black,
+                    //       fontSize: 17,
+                    //       fontWeight: FontWeight.bold),
+                    // ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Padding(
+                        //   padding: const EdgeInsets.all(8.0),
+                        //   // child: Icon(
+                        //   //   Icons.home,
+                        //   //   size: 40,
+                        //   // ),
+                        // ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Price Detail     ",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "Sub Total                                                                                                 399 ",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              Text(
+                                "Discount                                                                                                  0",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              Text(
+                                "Delivery Charges                                                                                   Free",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              Text(
+                                "Total Amount                                                                                                           399.0",
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Column(),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              height: 120,
+              width: 800,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 7,
+                      offset: Offset(0, 1),
+                    ), // changes position of shadow
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+          ),
+        ],
       ),
-      // ),
-    );
-
-    // SingleChildScrollView(
-    //   child: Center(
-    //     child: Padding(
-    //       padding: const EdgeInsets.all(8.0),
-    //       child: Column(
-    //         children: [
-    //           Card(
-    //             // elevation: 4,
-    //             color: Colors.grey,
-    //             child: InkWell(
-    //               splashColor: Colors.blue,
-    //               // onTap: () {
-    //               //   debugPrint('Card tapped.');
-    //               // },
-    //               child: const SizedBox(
-    //                 width: 500,
-    //                 height: 100,
-    //                 child: Padding(
-    //                   padding: EdgeInsets.all(8.0),
-    //                   child: Text(
-    //                     'Order can be tracked by 202020202\nTracking Link is shared via SMS',
-    //                     style: TextStyle(
-    //                         fontStyle: FontStyle.normal,
-    //                         color: Colors.black,
-    //                         fontSize: 15),
-    //                   ),
-    //                 ),
-    //               ),
-    //             ),
-    //           ),
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
+    ));
   }
 }
